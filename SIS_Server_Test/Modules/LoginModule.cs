@@ -11,7 +11,7 @@ namespace SIS_Server_Test.Modules
     public class LoginModule : NancyModule
     {
         public LoginModule()
-            : base("/login")
+            : base("api/login")
         {
             Get["/"] = _ =>
             {
