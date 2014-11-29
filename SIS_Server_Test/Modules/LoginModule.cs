@@ -17,15 +17,15 @@ namespace SIS_Server_Test.Modules
             {
                 var loginVM = new LoginViewModel();
                 loginVM.verifyIsAuthFlag = false;
-                loginVM.UserInfo = LoginModule.CreateUserInfo();
-                loginVM.UserMenu = LoginModule.CreateMenuItems();
-                loginVM.SignOutHref = "http://localhost:5000/api/Login?signoutFlag=true";
+                loginVM.UserInfo = CreateUserInfo();
+                loginVM.UserMenu = CreateMenuItems();
+                loginVM.SignOutHref = this.Request.Url.ToString() + "?signoutFlag=true";
 
                 return new JsonResponse(loginVM, new DefaultJsonSerializer {  }); //Response.AsJson(loginVM);
             };
         }
 
-        static internal UserInfoViewModel CreateUserInfo()
+        internal UserInfoViewModel CreateUserInfo()
         {
             return new UserInfoViewModel
             {
@@ -34,11 +34,12 @@ namespace SIS_Server_Test.Modules
             };
         }
 
-        static internal List<MenuItemViewModel> CreateMenuItems()
+        internal List<MenuItemViewModel> CreateMenuItems()
         {
             return new List<MenuItemViewModel>
         	{
-            	new MenuItemViewModel { Name="Patient", Description="Shinchon", MenuSize=2, Href="http://localhost:5000/api/patientshinchon"  },
+            	new MenuItemViewModel { Name="Patient", Description="Shinchon", MenuSize=2, 
+                     Href= this.Request.Url.SiteBase + "/api/patientshinchon"  },
             	new MenuItemViewModel { Name="Patient", Description="Kangnam", MenuSize=1  },
             	new MenuItemViewModel { Name="Video", Description="", MenuSize=1 },
             	new MenuItemViewModel { Name="Global Talk", Description="", MenuSize=1 },
