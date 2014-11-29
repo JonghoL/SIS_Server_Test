@@ -5,6 +5,7 @@ using System.Web;
 using Nancy;
 using SIS_Server_Test.ViewModels;
 using Nancy.Responses;
+using SIS_Server_Test.Utils;
 
 namespace SIS_Server_Test.Modules
 {
@@ -67,7 +68,7 @@ namespace SIS_Server_Test.Modules
                 ViewType = "TableController",
                 ViewImagePlaceHolder = "favorite_icon.png",
                 ViewImagePlaceHolderText = "\uf005",
-                Href = this.Request.Url.ToString() + "\favorite"
+                Href = this.Request.ToPublicUrl() + "\favorite"
             };
             ret.Details.Add(dtl01);
 
