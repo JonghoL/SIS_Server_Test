@@ -68,7 +68,7 @@ namespace SIS_Server_Test.Modules
                 ViewType = "TableController",
                 ViewImagePlaceHolder = "favorite_icon.png",
                 ViewImagePlaceHolderText = "\uf005",
-                Href = this.Request.ToPublicUrl() + "\favorite"
+                Href = this.Request.ToPublicUrl() + "/favorite"
             };
             ret.Details.Add(dtl01);
 
