@@ -37,7 +37,33 @@ namespace SIS_Server_Test.Modules
         			{
         				new ClientViewParameter { ParameterKey="DirectCall", ParameterValue="True"}
         			}
-        		}
+        		},
+                new ClientViewModel()
+                {
+                    ViewDisplayHeader = "Cardiac PACS",
+                    ViewType = "ExternalController",
+                    Href = "igxp://searchstudy?",
+                    Parameters = new List<ClientViewParameter>
+                    {
+                        new ClientViewParameter
+                        {
+                            ParameterKey = "Install",
+                            ParameterType = "hidden",
+                            ParameterValue = "itms-apps://itunes.apple.com/us/app/infinitt-mobile-viewer-hd/id458303871?mt=8&uo=4",
+                        },
+                        new ClientViewParameter
+                        {
+                            ParameterKey = "InstallTitle",
+                            ParameterType = "hidden",
+                            ParameterValue = "Install Infinitt App",
+                        },new ClientViewParameter
+                        {
+                            ParameterKey = "InstallMsg",
+                            ParameterType = "hidden",
+                            ParameterValue = "Need to Install INFINITT Mobile Viewer HD App",
+                        }
+                    }
+                }
         	};
 
             return ret;
