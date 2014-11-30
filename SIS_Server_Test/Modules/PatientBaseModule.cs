@@ -40,27 +40,28 @@ namespace SIS_Server_Test.Modules
         		},
                 new ClientViewModel()
                 {
-                    ViewDisplayHeader = "Cardiac PACS",
+                    ViewDisplayHeader = "GE PACS ( *BETA* )",
                     ViewType = "ExternalController",
-                    Href = "igxp://searchstudy?",
+                    Href = "crma://",
                     Parameters = new List<ClientViewParameter>
                     {
                         new ClientViewParameter
-                        {
+                         {
                             ParameterKey = "Install",
                             ParameterType = "hidden",
-                            ParameterValue = "itms-apps://itunes.apple.com/us/app/infinitt-mobile-viewer-hd/id458303871?mt=8&uo=4",
+                            ParameterValue = "itms-apps://itunes.apple.com/us/app/centricity-radiology-mobile/id501936750?mt=8&uo=4",
                         },
                         new ClientViewParameter
                         {
                             ParameterKey = "InstallTitle",
                             ParameterType = "hidden",
-                            ParameterValue = "Install Infinitt App",
-                        },new ClientViewParameter
+                            ParameterValue = "Install GE App",
+                        },
+                        new ClientViewParameter
                         {
                             ParameterKey = "InstallMsg",
                             ParameterType = "hidden",
-                            ParameterValue = "Need to Install INFINITT Mobile Viewer HD App",
+                            ParameterValue = "Need to Install GE Mobile PACS App",
                         }
                     }
                 }
