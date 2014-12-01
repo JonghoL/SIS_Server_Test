@@ -25,6 +25,42 @@ namespace SIS_Server_Test.Modules
                 return new JsonResponse(CreateViewModelForFavorite()
                     , new DefaultJsonSerializer { });
             };
+
+            Get["/infinite"] = _ =>
+            {
+                return new JsonResponse(CreateViewModelForFavorite()
+                    , new DefaultJsonSerializer { });
+            };
+        }
+
+        internal ClientViewModel CreateViewModelForInfinite()
+        {
+            var ret = new ClientViewModel { MoreData = true };
+            ret.Details = new List<ClientViewModel>
+            {
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling1", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling2", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling3", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling4", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling5", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling6", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling7", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling8", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling9", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling10", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling11", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling12", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling13", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling14", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling15", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling16", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling17", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling18", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling19", ViewDisplayText="Test", ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling20", ViewDisplayText="Test", ViewType="TableController" }
+            };
+
+            return ret;
         }
 
         internal ClientViewModel CreateViewModelForFavorite()
@@ -38,6 +74,8 @@ namespace SIS_Server_Test.Modules
         				new ClientViewParameter { ParameterKey="DirectCall", ParameterValue="True"}
         			}
         		},
+                new ClientViewModel { ViewDisplayHeader="Infinite Scrolling", ViewDisplayText="Test", ViewType="TableController",
+                    Href = this.Request.ToPublicUrl() + "/infinite" },
                 new ClientViewModel()
                 {
                     ViewDisplayHeader = "GE PACS ( *BETA* )",
