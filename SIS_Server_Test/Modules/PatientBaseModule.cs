@@ -28,7 +28,7 @@ namespace SIS_Server_Test.Modules
 
             Get["/infinite"] = _ =>
             {
-                return new JsonResponse(CreateViewModelForFavorite()
+                return new JsonResponse(CreateViewModelForInfinite()
                     , new DefaultJsonSerializer { });
             };
         }
