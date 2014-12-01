@@ -35,29 +35,29 @@ namespace SIS_Server_Test.Modules
 
         internal ClientViewModel CreateViewModelForInfinite()
         {
-            var ret = new ClientViewModel { MoreData = true };
+            var ret = new ClientViewModel { MoreData = true, Href = this.Request.ToPublicSiteBase() + "api/patientshinchon/infinite" };
             ret.Details = new List<ClientViewModel>
             {
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling1", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling2", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling3", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling4", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling5", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling6", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling7", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling8", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling9", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling10", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling11", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling12", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling13", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling14", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling15", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling16", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling17", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling18", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling19", ViewDisplayText="Test", ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling20", ViewDisplayText="Test", ViewType="TableController" }
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling1", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling2", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling3", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling4", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling5", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling6", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling7", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling8", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling9", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling10", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling11", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling12", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling13", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling14", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling15", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling16", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling17", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling18", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling19", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
+                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling20", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" }
             };
 
             return ret;
