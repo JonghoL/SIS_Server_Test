@@ -75,7 +75,7 @@ namespace SIS_Server_Test.Modules
         			}
         		},
                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling", ViewDisplayText="Test", ViewType="TableController",
-                    Href = this.Request.ToPublicUrl() + "/infinite" },
+                    Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/infinite" },
                 new ClientViewModel()
                 {
                     ViewDisplayHeader = "GE PACS ( *BETA* )",
