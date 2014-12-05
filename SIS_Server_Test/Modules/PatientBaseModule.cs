@@ -36,7 +36,7 @@ namespace SIS_Server_Test.Modules
 
         internal ClientViewModel CreateViewModelForInfinite(int value)
         {
-            var ret = new ClientViewModel { MoreData = value > 100, Href = this.Request.ToPublicSiteBase() + "api/patientshinchon/infinite" };
+            var ret = new ClientViewModel { MoreData = value > 100, Href = this.Request.ToPublicSiteBase() + "api/patientshinchon/infinite/" + value + 20 };
             for (int i = 0; i < 20; i++)
             {
                 ret.Details.Add(new ClientViewModel { ViewDisplayHeader = "Infinite Scrolling" + value++, ViewDisplayText = DateTime.Now.ToString(), ViewType = "TableController" });
@@ -57,7 +57,7 @@ namespace SIS_Server_Test.Modules
         			}
         		},
                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling", ViewDisplayText="Test", ViewType="TableController",
-                    Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/infinite" },
+                    Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/infinite/0" },
                 new ClientViewModel()
                 {
                     ViewDisplayHeader = "GE PACS ( *BETA* )",
