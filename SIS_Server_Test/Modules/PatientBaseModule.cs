@@ -33,10 +33,9 @@ namespace SIS_Server_Test.Modules
                     , new DefaultJsonSerializer { });
             };
 
-            Get["/image/"] = _ =>
+            Get["/image"] = _ =>
             {
-                int value = _.value;
-                return new JsonResponse(CreateViewModelForInfinite(value)
+                return new JsonResponse(CreateViewModelForImage()
                     , new DefaultJsonSerializer { });
             };
         }
@@ -77,7 +76,7 @@ namespace SIS_Server_Test.Modules
                 new ClientViewModel { ViewDisplayHeader="TableController", ViewDisplayText="infinite scrolling", ViewType="TableController",
                     Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/infinite/0" },
                 new ClientViewModel { ViewDisplayHeader="ImageController", ViewDisplayText="infinite scrolling", ViewType="ImageController",
-                    Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/infinite/0" },
+                    Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/image" },
                 new ClientViewModel()
                 {
                     ViewDisplayHeader = "GE PACS ( *BETA* )",
