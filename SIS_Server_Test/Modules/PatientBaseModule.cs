@@ -26,40 +26,22 @@ namespace SIS_Server_Test.Modules
                     , new DefaultJsonSerializer { });
             };
 
-            Get["/infinite"] = _ =>
+            Get["/infinite/{value:int}"] = _ =>
             {
-                return new JsonResponse(CreateViewModelForInfinite()
+                int value = _.value;
+                return new JsonResponse(CreateViewModelForInfinite(value)
                     , new DefaultJsonSerializer { });
             };
         }
 
-        internal ClientViewModel CreateViewModelForInfinite()
+        internal ClientViewModel CreateViewModelForInfinite(int value)
         {
-            var ret = new ClientViewModel { MoreData = true, Href = this.Request.ToPublicSiteBase() + "api/patientshinchon/infinite" };
-            ret.Details = new List<ClientViewModel>
+            var ret = new ClientViewModel { MoreData = value > 100, Href = this.Request.ToPublicSiteBase() + "api/patientshinchon/infinite" };
+            for (int i = 0; i < 20; i++)
             {
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling1", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling2", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling3", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling4", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling5", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling6", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling7", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling8", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling9", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling10", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling11", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling12", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling13", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling14", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling15", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling16", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling17", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling18", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling19", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" },
-                 new ClientViewModel { ViewDisplayHeader="Infinite Scrolling20", ViewDisplayText=DateTime.Now.ToString(), ViewType="TableController" }
-            };
-
+                ret.Details.Add(new ClientViewModel { ViewDisplayHeader = "Infinite Scrolling" + value++, ViewDisplayText = DateTime.Now.ToString(), ViewType = "TableController" });
+            }
+ 
             return ret;
         }
 
@@ -68,7 +50,7 @@ namespace SIS_Server_Test.Modules
             var ret = new ClientViewModel();
             ret.Details = new List<ClientViewModel>
         	{
-        		new ClientViewModel { ViewDisplayHeader="Header", ViewDisplayText="Text", ViewType="WebController", Href="http://apple.com", 
+        		new ClientViewModel { ViewDisplayHeader="WebController", ViewDisplayText="Text", ViewType="WebController", Href="http://apple.com", 
         			Parameters = new List<ClientViewParameter>
         			{
         				new ClientViewParameter { ParameterKey="DirectCall", ParameterValue="True"}

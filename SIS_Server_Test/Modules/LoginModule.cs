@@ -41,10 +41,10 @@ namespace SIS_Server_Test.Modules
         	{
             	new MenuItemViewModel { Name="Patient", Description="Shinchon", MenuSize=2, 
                      Href= this.Request.ToPublicSiteBase() + "api/patientshinchon"  },
-            	new MenuItemViewModel { Name="Patient", Description="Kangnam", MenuSize=1  },
-            	new MenuItemViewModel { Name="Video", Description="", MenuSize=1 },
-            	new MenuItemViewModel { Name="Global Talk", Description="", MenuSize=1 },
-                new MenuItemViewModel { Name="...", Description="", MenuSize=1 }
+                //new MenuItemViewModel { Name="Patient", Description="Kangnam", MenuSize=1  },
+                //new MenuItemViewModel { Name="Video", Description="", MenuSize=1 },
+                //new MenuItemViewModel { Name="Global Talk", Description="", MenuSize=1 },
+                //new MenuItemViewModel { Name="...", Description="", MenuSize=1 }
 			};
         }
     }
