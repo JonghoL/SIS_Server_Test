@@ -81,7 +81,8 @@ namespace SIS_Server_Test.Modules
                     Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/image" },
                 new ClientViewModel()
                 {
-                    ViewDisplayHeader = "GE PACS ( *BETA* )",
+                    ViewDisplayHeader = "ExternalController",
+                    ViewDisplayText = "GE PACS ( *BETA* )",
                     ViewType = "ExternalController",
                     Href = "crma://",
                     Parameters = new List<ClientViewParameter>
