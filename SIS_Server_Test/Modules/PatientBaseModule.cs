@@ -43,6 +43,8 @@ namespace SIS_Server_Test.Modules
         internal ClientViewModel CreateViewModelForImage()
         {
             var ret = new ClientViewModel();
+            ret.Details.Add(new ClientViewModel { ViewImageHref = "https://cloud.githubusercontent.com/assets/72919/5170445/b7956c46-73c4-11e4-9874-36b6f5f94fab.jpg" });
+            ret.Details.Add(new ClientViewModel { ViewImageHref = "https://cloud.githubusercontent.com/assets/72919/5170397/3b7c54c6-73c4-11e4-9fa7-305e8f655685.jpg" });
             ret.Details.Add(new ClientViewModel { ViewImageHref = "http://nancyfx.org/images/logo.png" });
 
             return ret;
