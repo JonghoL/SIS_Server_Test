@@ -32,6 +32,21 @@ namespace SIS_Server_Test.Modules
                 return new JsonResponse(CreateViewModelForInfinite(value)
                     , new DefaultJsonSerializer { });
             };
+
+            Get["/image/"] = _ =>
+            {
+                int value = _.value;
+                return new JsonResponse(CreateViewModelForInfinite(value)
+                    , new DefaultJsonSerializer { });
+            };
+        }
+
+        internal ClientViewModel CreateViewModelForImage()
+        {
+            var ret = new ClientViewModel();
+            ret.Details.Add(new ClientViewModel { ViewImageHref = "http://nancyfx.org/images/logo.png" });
+
+            return ret;
         }
 
         internal ClientViewModel CreateViewModelForInfinite(int value)
@@ -53,13 +68,15 @@ namespace SIS_Server_Test.Modules
             var ret = new ClientViewModel();
             ret.Details = new List<ClientViewModel>
         	{
-        		new ClientViewModel { ViewDisplayHeader="WebController", ViewDisplayText="Text", ViewType="WebController", Href="http://apple.com", 
+        		new ClientViewModel { ViewDisplayHeader="WebController", ViewDisplayText="direct webpage", ViewType="WebController", Href="http://apple.com", 
         			Parameters = new List<ClientViewParameter>
         			{
         				new ClientViewParameter { ParameterKey="DirectCall", ParameterValue="True"}
         			}
         		},
-                new ClientViewModel { ViewDisplayHeader="Infinite Scrolling", ViewDisplayText="Test", ViewType="TableController",
+                new ClientViewModel { ViewDisplayHeader="TableController", ViewDisplayText="infinite scrolling", ViewType="TableController",
+                    Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/infinite/0" },
+                new ClientViewModel { ViewDisplayHeader="ImageController", ViewDisplayText="infinite scrolling", ViewType="ImageController",
                     Href = this.Request.ToPublicSiteBase()  + "api/patientshinchon/infinite/0" },
                 new ClientViewModel()
                 {
