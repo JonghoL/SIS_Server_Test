@@ -36,10 +36,10 @@ namespace SIS_Server_Test.Modules
 
         internal ClientViewModel CreateViewModelForInfinite(int value)
         {
-            var ret = new ClientViewModel { MoreData = value < 100, Href = this.Request.ToPublicSiteBase() + "api/patientshinchon/infinite/" + value + 20 };
+            var ret = new ClientViewModel { MoreData = value < 100, Href = this.Request.ToPublicSiteBase() + "api/patientshinchon/infinite/" + (value + 20) };
             for (int i = 0; i < 20; i++)
             {
-                ret.Details.Add(new ClientViewModel { ViewDisplayHeader = "Infinite Scrolling" + value++, ViewDisplayText = DateTime.Now.ToString(), ViewType = "TableController" });
+                ret.Details.Add(new ClientViewModel { ViewDisplayHeader = "Infinite Scrolling " + value++, ViewDisplayText = DateTime.Now.ToString(), ViewType = "TableController" });
             }
  
             return ret;
