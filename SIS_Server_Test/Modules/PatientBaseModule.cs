@@ -38,6 +38,19 @@ namespace SIS_Server_Test.Modules
                 return new JsonResponse(CreateViewModelForImage()
                     , new DefaultJsonSerializer { });
             };
+
+            Get["/search"] = _ =>
+            {
+                return new JsonResponse(CreateViewModelForSearch()
+                    , new DefaultJsonSerializer { });
+            };
+        }
+
+        internal ClientViewModel CreateViewModelForSearch()
+        {
+            var ret = new ClientViewModel();
+
+            return ret;
         }
 
         internal ClientViewModel CreateViewModelForImage()
@@ -140,6 +153,106 @@ namespace SIS_Server_Test.Modules
                 Href = this.Request.ToPublicUrl() + "/favorite"
             };
             ret.Details.Add(dtl01);
+            var dtl02 = new ClientViewModel()
+            {
+                ViewDisplayText = "Search",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "search_icon.png",
+                ViewImagePlaceHolderText = "\uf002",
+                Href = this.Request.ToPublicUrl() + "/search",
+                Parameters = new List<ClientViewParameter>()
+                {
+                    new ClientViewParameter(){ ParameterKey = "SearchString", ParameterDisplayText = "Unit No or Patient Name"},
+                    new ClientViewParameter(){ ParameterKey = "Type", ParameterType = "hidden", ParameterValue = "SearchString"},
+                },
+            };
+            dtl02.Details.Add(new ClientViewModel()
+            {
+                ViewDisplayHeader = "Inpatient (Ward)",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "inpatient_icon.png",
+                ViewImagePlaceHolderText = "\uf0f6",
+                //Href = urlRegistry.FullUrlFor(PatientControllerType, requestUri, applicationPath) + "/" + PatientControllerID_Ward,
+            });
+            dtl02.Details.Add(new ClientViewModel()
+            {
+                ViewDisplayHeader = "Inpatient (Dept)",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "inpatient_icon.png",
+                ViewImagePlaceHolderText = "\uf0f6",
+                //Href =
+                //    urlRegistry.FullUrlFor(PatientControllerType, requestUri, applicationPath) + "/" +
+                //    PatientControllerID_Inpatient,
+            });
+            dtl02.Details.Add(new ClientViewModel()
+            {
+                ViewDisplayHeader = "Outpatient",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "outpatient_icon.png",
+                ViewImagePlaceHolderText = "\uf0f6",
+                //Href =
+                //    urlRegistry.FullUrlFor(PatientControllerType, requestUri, applicationPath) + "/" +
+                //    PatientControllerID_Outpatient,
+            });
+            dtl02.Details.Add(new ClientViewModel()
+            {
+                ViewDisplayHeader = "Emergency Room (Ward)",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "outpatient_icon.png",
+                ViewImagePlaceHolderText = "\uf0f6",
+                //Href =
+                //    urlRegistry.FullUrlFor(PatientControllerType, requestUri, applicationPath) + "/" +
+                //    PatientControllerID_Search,
+                //Parameters = new List<ClientViewParameter>()
+                //{
+                //    new ClientViewParameter(){ ParameterType = "hidden", ParameterKey = "DeptCd", ParameterValue = "ER"},
+                //    new ClientViewParameter(){ ParameterType = "hidden", ParameterKey = "Type", ParameterValue = PatientControllerID_Ward},
+                //},
+            });
+            dtl02.Details.Add(new ClientViewModel()
+            {
+                ViewDisplayHeader = "Emergency Room (Dept)",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "outpatient_icon.png",
+                ViewImagePlaceHolderText = "\uf0f6",
+                //Href =
+                //    urlRegistry.FullUrlFor(PatientControllerType, requestUri, applicationPath) + "/" +
+                //    PatientControllerID_Emergency,
+            });
+            dtl02.Details.Add(new ClientViewModel()
+            {
+                ViewDisplayHeader = "OP List (OR)",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "outpatient_icon.png",
+               // ViewImageHref = baseUrl + VirtualPathUtility.ToAbsolute("~/Images/big_record4.png", applicationPath),
+                ViewImagePlaceHolderText = "\uf0f6",
+                //Href =
+                //    urlRegistry.FullUrlFor(PatientControllerType, requestUri, applicationPath) + "/" +
+                //    PatientControllerID_OpPatient_OpRoom,
+            });
+            dtl02.Details.Add(new ClientViewModel()
+            {
+                ViewDisplayHeader = "OP List (Dept)",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "outpatient_icon.png",
+                //ViewImageHref = baseUrl + VirtualPathUtility.ToAbsolute("~/Images/big_record4.png", applicationPath),
+                ViewImagePlaceHolderText = "\uf0f6",
+                //Href =
+                //    urlRegistry.FullUrlFor(PatientControllerType, requestUri, applicationPath) + "/" +
+                //    PatientControllerID_OpPatient_Dept,
+            });
+            dtl02.Details.Add(new ClientViewModel()
+            {
+                ViewDisplayHeader = "OP Plan List (Dept)",
+                ViewType = "TableController",
+                ViewImagePlaceHolder = "outpatient_icon.png",
+               // ViewImageHref = baseUrl + VirtualPathUtility.ToAbsolute("~/Images/big_record4.png", applicationPath),
+                ViewImagePlaceHolderText = "\uf0f6",
+                //Href =
+                //    urlRegistry.FullUrlFor(PatientControllerType, requestUri, applicationPath) + "/" +
+                //    PatientControllerID_OpPatient_Dept_Scheduled,
+            });
+            ret.Details.Add(dtl02);
 
             return ret;
         }
